@@ -4,18 +4,19 @@ from sys import stdout  # standard output
 from time import sleep  # sleep for x seconds
 
 
-def timer(minutes, message):
-    seconds = 60
-    for m in range(minutes, 0, -1):
-        for s in range(seconds, 0, -1):
+def timer(minutes, message):  # takes minutes and displays message
+    seconds = 60  # set seconds to 60
+    for m in range(minutes, 0, -1):  # decrease minutes till 0
+        for s in range(seconds, 0, -1):  # decrease seconds till 0
+            # string in format mm:ss message
             time = str(f'{m - 1:02}') + ':' + str(f'{s - 1:02} ') + message
-            stdout.write('\r' + time)
-            sleep(1)
-            if seconds == 0:
-                seconds = 60
+            stdout.write('\r' + time)  # clear the line then print the time
+            sleep(1)  # sleep for 1 seconds
+            if seconds == 0:  # if seconds hit 0
+                seconds = 60  # reset to 60
                 break
 
 
-while (True):
-    timer(25, '🍅 Work time!')
-    timer(5, '🍵 Break time, grab some tea')
+while (True):  # infinite while loop
+    timer(25, '🍅 Work time!')  # work timer
+    timer(5, '🍵 Break time, grab some tea')  # break timer
